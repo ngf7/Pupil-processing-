@@ -1,5 +1,5 @@
 # Pupil-processing
-Code for intial processing of pupil movies of rodents with optional, possibly useful analysis of processing output, implemented in MATLAB. Works for grayscale and RGB .avis. Exmaple movies to test the code and its capabilities can be found [here] (https://drive.google.com/drive/folders/1L4LqzA7hPC4DhDAlagq_gB9dk1eqcvuW). 
+Code for intial processing of pupil movies of rodents with optional, possibly useful analysis of processing output, implemented in MATLAB. Works for grayscale and RGB .avis. Exmaple movies to test the code and its capabilities can be found [here](https://drive.google.com/drive/folders/1L4LqzA7hPC4DhDAlagq_gB9dk1eqcvuW). 
 
 # Data acquisition info - good practices to ensure optimal and reliable processing
 - Choose monitor brightness that constricts the pupil just enough to that changes cna be minotored. If basline pupil size is too large (large neough to be occluded partially by the eyelids) dilations will not be detectable
