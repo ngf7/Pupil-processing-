@@ -61,32 +61,32 @@ Once all of these prompted inputs have been entered the code should run until co
 ## Output of processing
 Individual files for each block will be saved in the base_path folder. Each file will contain the following:
 - pupil: structure contating all pupil related fields below
-          - center_position: sub-struct containing variable related to the pupil's position in the field of view
-                    - center_column: column vector containing column index where center of pupil is located. if your movie is not rotated this is analogous to x position, if movie                        is rotated 180 degrees this is analogous to y position 
-                    - center_row: vector containing row index where center of pupil is located.if your movie is not rotated this is analogous to y position, if movie                                     is rotated 180 degrees this is analogous to x position 
-          -  area: sub-struct containing variables related to the pupil area (note: all of these variables have been cut to only frames where 2P imaging is occurring)
-                    - corrected_areas: column vector of pupil areas after artifact correction (elimination of blink frames, saccades, physiologically impossible values and 
-                    - uncorrected_areas: column vecort of pupil areas without artifact correction
-                    - smoothed_30_timeframes:pupil areas after artifact correction gaussian smoothed over 30 frames
-                    - smoothed_10_timeframes: pupil area for each frame after artifact correction and smoothed by gaussian curve over 10 frames
-          - radii: sub-struct containing variables related to the pupil radius for each frame (if conversion to area is not desired - could maybe add a blink corrected radii                          vector so that ppl wouldnt need to do this themselves
-                    - uncut_uncorrected_radii: vector containing pupil radius measurement for each frame, not artifact corrected, not cut to galvo
-                    - cut_uncorrected_radii: vector containing pupil radius measurement for each frame, not artifact corrected, cut to galvo
-          - blink: vector containing the indices of frames where pupil measurement is inaccurate due to a blink
-          - galvo_on: the frame of pupil movie where 2P imaging starts (the relative first frame of vectors that have been cut to galvo)
-          - galvo_off: the frame of pupil movie where 2P imaging ends (the relative last frame of vectors that have been cut to galvo)
+  - center_position: sub-struct containing variable related to the pupil's position in the field of view
+    - center_column: column vector containing column index where center of pupil is located. if your movie is not rotated this is analogous to x position, if movie                        is rotated 180 degrees this is analogous to y position 
+    - center_row: vector containing row index where center of pupil is located.if your movie is not rotated this is analogous to y position, if movie                                     is rotated 180 degrees this is analogous to x position 
+  - area: sub-struct containing variables related to the pupil area (note: all of these variables have been cut to only frames where 2P imaging is occurring)
+    - corrected_areas: column vector of pupil areas after artifact correction (elimination of blink frames, saccades, physiologically impossible values and 
+    - uncorrected_areas: column vecort of pupil areas without artifact correction
+    - smoothed_30_timeframes:pupil areas after artifact correction gaussian smoothed over 30 frames
+    - smoothed_10_timeframes: pupil area for each frame after artifact correction and smoothed by gaussian curve over 10 frames
+  - radii: sub-struct containing variables related to the pupil radius for each frame (if conversion to area is not desired - could maybe add a blink corrected radii                          vector so that ppl wouldnt need to do this themselves
+    -  uncut_uncorrected_radii: vector containing pupil radius measurement for each frame, not artifact corrected, not cut to galvo
+    -  cut_uncorrected_radii: vector containing pupil radius measurement for each frame, not artifact corrected, cut to galvo
+  -  blink: vector containing the indices of frames where pupil measurement is inaccurate due to a blink
+  -  galvo_on: the frame of pupil movie where 2P imaging starts (the relative first frame of vectors that have been cut to galvo)
+  -  galvo_off: the frame of pupil movie where 2P imaging ends (the relative last frame of vectors that have been cut to galvo)
   
  
  If you have different contexts and choose to save the indiviual contexts individually you will see files in the save paths for respective context with the following variables: 
  
 - pupil_all: cell array where each cell is the pupil struct from an individual block (see above to definition of variables contained in individual 'pupil' structures). The following variables have been added to each block's pupil struct.
-          - alignement:
-                     - galvo_temp: time points where peak of galvo signal occurred (in wavesufer units)
-                     - galvo_peaks: voltage value of each galvo frame peak
-                     - MatchedFrameInds: pupil frame identity assigned to each galvo frame 
-                     - MatchedFrameValsUnsmoothed: unsmoothed pupil area measurement at pupil frame assigned to each galvo frame
-                     - MatchedFrameValSmoothed10: pupil area measurement at pupil frame assigned to each galvo frame, smoothed over 10 timeframes
-                     - MatchedFrameValSmoothed30: pupil area measurement at pupil frame assigned to each galvo frame, smoothed over 30 timeframes 
+  - alignement:
+    - galvo_temp: time points where peak of galvo signal occurred (in wavesufer units)
+    - galvo_peaks: voltage value of each galvo frame peak
+    - MatchedFrameInds: pupil frame identity assigned to each galvo frame 
+    - MatchedFrameValsUnsmoothed: unsmoothed pupil area measurement at pupil frame assigned to each galvo frame
+    - MatchedFrameValSmoothed10: pupil area measurement at pupil frame assigned to each galvo frame, smoothed over 10 timeframes
+    - MatchedFrameValSmoothed30: pupil area measurement at pupil frame assigned to each galvo frame, smoothed over 30 timeframes 
 - aligned_pupil_unsmoothed: unsmoothed pupil areas aligned to galvo frames, concatenated across all blocks and contexts (if applicable)
 - aligned_pupil_smoothed_10: pupil areas smoothed over 10 time frames aligned to galvo frames, concatenated across all blocks and contexts (if applicable)
 - aligned_pupil_smoothed_30: pupil areas smoothed over 30 time frames aligned to galvo frames, concatenated across all blocks and contexts (if applicable)
