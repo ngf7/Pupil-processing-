@@ -1,4 +1,4 @@
-#### Pupil-processing
+# Pupil-processing
 Code for intial processing of pupil movies of rodents with optional, possibly useful analysis of processing output, implemented in MATLAB. Works for grayscale and RGB .avis. Exmaple movies to test the code and its capabilities can be found [here](https://drive.google.com/drive/folders/1L4LqzA7hPC4DhDAlagq_gB9dk1eqcvuW). 
 
 ## Data acquisition info - good practices to ensure optimal and reliable processing
@@ -11,7 +11,7 @@ Code for intial processing of pupil movies of rodents with optional, possibly us
 ## How to use
 NOTE: This code has been tested in MATLAB 2019a and later. Older versions may be compatible but have not been tested.
 
-# Getting started
+### Getting started
 1. Download the repository to a single directory
 2. Make sure overhead directory and all subdirectories are added to your current MATLAB path 
 3. Open 'forfitcircles.m' and edit variables related to base_path, base_path_wav, base_path_tseries, tot_file_save_path, save_path_pass, save_path_spont
@@ -25,7 +25,7 @@ NOTE: in these path names you should replace mouse ID in path name with mouse va
 
 Once all paths have been properly edited to suit your data, you may run code with command 'forforcirles' or by hitting the RUN button in the Editing toolbar
 
-# Running the code
+### Running the code
 In the command line you will be prompted to input:
 
 Mouse ID: The name of the mosue exactly as it appears in your paths 
