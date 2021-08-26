@@ -2,6 +2,11 @@
 Code for intial processing of pupil movies of rodents with optional, possibly useful analysis of processing output, implemented in MATLAB. Works for grayscale and RGB .avis. Exmaple movies to test the code and its capabilities can be found here. 
 
 # Data acquisition info - good practices to ensure optimal and reliable processing
+- Choose monitor brightness that constricts the pupil just enough to that changes cna be minotored. If basline pupil size is too large (large neough to be occluded partially by the eyelids) dilations will not be detectable
+- Once a reasonable monitor luminance is reached, keep this constant across all imaging sessions
+- Ensure light blocking apparaturs is not covering the imaged or non-imaged eye
+- Do not use maximum aperture. If the area surrounding the pupil is too bright, isolating the pupil ROI from other objection within the FOV will be more challenging
+- Keep the angle of the camera relative to the eye as consistent as possible across imaging sessions
 
 # How to use
 NOTE: This code has been tested in MATLAB 2019a and later. Older versions may be compatible but have not been tested.
