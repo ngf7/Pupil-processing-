@@ -68,7 +68,7 @@ Individual files for each block will be saved in the base_path folder. Each file
                     - uncorrected_areas: column vecort of pupil areas without artifact correction
                     - smoothed_30_timeframes:pupil areas after artifact correction gaussian smoothed over 30 frames
                     - smoothed_10_timeframes: pupil area for each frame after artifact correction and smoothed by gaussian curve over 10 frames
-          - radii: sub-struct containing variables realted to the pupil radius for each frame (if conversion to area is not desired - could maybe add a blink corrected radii                          vector so that ppl wouldnt need to do this themselves
+          - radii: sub-struct containing variables related to the pupil radius for each frame (if conversion to area is not desired - could maybe add a blink corrected radii                          vector so that ppl wouldnt need to do this themselves
                     - uncut_uncorrected_radii: vector containing pupil radius measurement for each frame, not artifact corrected, not cut to galvo
                     - cut_uncorrected_radii: vector containing pupil radius measurement for each frame, not artifact corrected, cut to galvo
           - blink: vector containing the indices of frames where pupil measurement is inaccurate due to a blink
@@ -76,10 +76,8 @@ Individual files for each block will be saved in the base_path folder. Each file
           - galvo_off: the frame of pupil movie where 2P imaging ends (the relative last frame of vectors that have been cut to galvo)
   
  
- if you have different contexts and choose to save the indiviual contexts individually you will see files in the save paths for respective context with pupil these variabls:
- list all the alignedmnet variabes from below so tah tyou can say in the final you will see all the same variables from above but now they are contatenated across contexts (or not if you did not input existence of contexts)... if you choose to do kmeans clustereing the following variabels will also be present... if you opt to do dilcon the following variabels will alos be present 
+ If you have different contexts and choose to save the indiviual contexts individually you will see files in the save paths for respective context with the following variables: 
  
-Final file saved to tot_file_save_path:
 - pupil_all: cell array where each cell is the pupil struct from an individual block (see above to definition of variables contained in individual 'pupil' structures). The following variables have been added to each block's pupil struct.
           - alignement:
                      - galvo_temp: time points where peak of galvo signal occurred (in wavesufer units)
@@ -92,15 +90,17 @@ Final file saved to tot_file_save_path:
 - aligned_pupil_smoothed_10: pupil areas smoothed over 10 time frames aligned to galvo frames, concatenated across all blocks and contexts (if applicable)
 - aligned_pupil_smoothed_30: pupil areas smoothed over 30 time frames aligned to galvo frames, concatenated across all blocks and contexts (if applicable)
 - pup_norm: normalized unsmoothed pupil areas aligned to galvo frames, concatenated across all blocks. Calculed by (pupil areas - mean(pupil areas))/mean(pupil areas)
-- pup_norm_10: normalized pupil areas smoothed over 10 timeframes aligned to galvo frames, concatenated across all blocks and contexts (if applicable). Calculated just as in pup_norm but using areas smoothed by 10
-- pup_norm_30: normalized pupil areas smoothed over 10 timeframes aligned to galvo frames, concatenated across all blocks and contexts (if applicable). Calculated just as in pup_norm but using areas smoothed by 30
-- aligned_pupil_x_position: pupil position on the x-axis within the FOV aligned to galo frames, concatenated across all blocks and contexts (if applicable)
-- aligned_pupil_y_position: pupil position on the y-axis within the FOV aligned to galo frames, concatenated across all blocks and contexts (if applicable)
-- x_velocity: running velocity in x aligned to galvo frames, concatenated across all blocks and contexts (if applicable). Not absolute value
-- y_velocity: running velocity in y aligned to galvo frames, concatenated across all blocks and contexts (if applicable)
+- pup_norm_10: normalized pupil areas smoothed over 10 timeframes aligned to galvo frames, concatenated across all blocks within the context. Calculated just as in pup_norm but using areas smoothed by 10
+- pup_norm_30: normalized pupil areas smoothed over 10 timeframes aligned to galvo frames, concatenated across all blocks within the context. Calculated just as in pup_norm but using areas smoothed by 30
+- aligned_pupil_x_position: pupil position on the x-axis within the FOV aligned to galo frames, concatenated across all blocks within the context 
+- aligned_pupil_y_position: pupil position on the y-axis within the FOV aligned to galo frames, concatenated across all blocks within the context
+- x_velocity: running velocity in x aligned to galvo frames, concatenated across all blocks within the context. Not absolute value
+- y_velocity: running velocity in y aligned to galvo frames, concatenated across all blocks within the context
 - loco_sum: squared sum of the absolute value of x and y velocities
 - loco_sum_smooth: loco_sum gaussian smoothed over 100 timeframes
 - blockTransistions: indicies related to all block concatenated variables where there is an interface between two blocks
+
+If you set cont to 'none' all of the above variables will be saved to file in the tot_file_save_path. If you do have multiple contexts, additional code will be run to concatenate across the two contexts, and those variables (following the same names) will be saved into tot_file_save_path.
 
 If you input 'y' for kmeans analysis the following variables will also be present:
 - C: value of the 2 centroids identified in the data ot be used to be used for classiication
